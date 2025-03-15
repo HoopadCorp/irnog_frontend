@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
             ایرناگ 7
           </h1>
         </div>
-        <div className="flex flex-col lg:flex-row lg:gap-24 justify-center align-baseline items-baseline gap-8 lg:mb-48">
+        <div className="flex flex-col lg:flex-row lg:gap-5 justify-center align-baseline items-baseline gap-8 lg:mb-48">
           <button
             className="shinyButton max-w-96 min-w-80 mx-auto h-20 text-white  text-2xl py-2 px-4 rounded-4xl hover:cursor-pointer items-center justify-center"
             onClick={() => router.push("/buyTicket")}

@@ -1,13 +1,11 @@
+"use client";
 import { useRouter } from "next/navigation";
-import { FC } from "react";
+import { FC, useState } from "react";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "../ui/navigation-menu";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface MenubarItemsProps {
   setOpen?: (open: boolean) => void;
@@ -39,13 +37,7 @@ const MenubarItems: FC<MenubarItemsProps> = ({ setOpen }) => {
     }
 
     if (link === "/") {
-      setTimeout(() => {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: "smooth",
-        });
-      }, 500);
-      router.push(link);
+      router.push("/#bottom");
     } else {
       router.push(link);
     }
@@ -59,39 +51,46 @@ const MenubarItems: FC<MenubarItemsProps> = ({ setOpen }) => {
   return (
     <>
       {menubarItemsArray.map((item, index) => (
-        <NavigationMenu key={index}>
-          <NavigationMenuList>
-            <NavigationMenuItem className="flex flex-row ">
+        <div key={index}>
+          <div>
+            <li className="flex flex-row list-none! ">
               {item.name === "همایش ها" ? (
                 <>
-                  <NavigationMenuTrigger className="text-white ">
-                    {item.name}
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent className="bg-secondary text-primary w-24! text-center">
-                    {eventItemsArray.map((item, index) => (
-                      <div
-                        className="border-b border-white p-1 cursor-pointer hover:text-white"
-                        onClick={() => handleIrnogPageClick(item.link)}
-                        key={index}
-                      >
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <div className="text-white hover:text-secondary px-4 py-2 rounded-md transition-colors duration-200 hover:cursor-pointer ">
                         {item.name}
                       </div>
-                    ))}
-                  </NavigationMenuContent>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-40 bg-secondary border border-white rounded-lg shadow-lg">
+                      <div>
+                        {eventItemsArray.map((item, index) => (
+                          <div
+                            key={index}
+                            onClick={() => handleIrnogPageClick(item.link)}
+                            className="cursor-pointer  hover:bg-gray-700 hover:text-white px-4 py-2 rounded-md transition-colors duration-200 "
+                            dir="rtl"
+                          >
+                            {item.name}
+                          </div>
+                        ))}
+                      </div>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </>
               ) : (
-                <NavigationMenuLink
+                <div
                   className={`mx-2 uppercase text-white hover:text-secondary cursor-pointer ${
                     index === 0 ? "text-secondary hover:text-white" : ""
                   }`}
                   onClick={() => handleClick(item.link)}
                 >
                   {item.name}
-                </NavigationMenuLink>
+                </div>
               )}
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
+            </li>
+          </div>
+        </div>
       ))}
     </>
   );

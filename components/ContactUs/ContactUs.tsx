@@ -7,7 +7,10 @@ import ReactMarkdown from "react-markdown";
 interface ContactUsProps {}
 const ContactUs: FC<ContactUsProps> = () => {
   return (
-    <Card className="w-4/5 bg-secondary align-middle m-auto my-16 overflow-hidden rounded-4xl!">
+    <Card
+      className="w-4/5 bg-secondary align-middle m-auto my-16 overflow-hidden rounded-4xl!"
+      id="bottom"
+    >
       <h1 className="uppercase lg:text-6xl text-4xl text-white font-extrabold text-center select-none">
         contact us
       </h1>

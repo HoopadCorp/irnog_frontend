@@ -42,7 +42,7 @@ export interface IrnogEvent {
   time?: string;
   location: Location;
   irnogAgenda?: Table[];
-  sponsers: Sponsors;
+  sponsers?: Sponsors;
   gallery?: gallery[];
-  Participants: Participants[];
+  Participants?: Participants[];
 }

@@ -2,6 +2,7 @@ import StickyHeader from "@/components/Header/StickyHeader";
 import "./globals.css";
 import AnimatedWallpaper from "@/components/AnimatedWallpaper/AnimatedWallpaper";
 import { ToastContainer } from "react-toastify";
+import Footer from "@/components/Footer/Footer";
 
 export default function RootLayout({
   children,
@@ -23,7 +24,7 @@ export default function RootLayout({
         <main className="flex-grow relative z-10 ">{children}</main>
         {/* Footer */}
         <footer className="bg-gray-900 text-white p-4 text-center relative z-10">
-          <p>کلیه حقوق این وب سایت متعلق به انجمن ایرناگ می‌باشد © 2017-2025</p>
+          <Footer />
         </footer>
       </body>
     </html>
