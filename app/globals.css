@@ -37,6 +37,11 @@
 }
 
 @font-face {
+  font-family: "Vazir";
+  src: url("/fonts/Vazir.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Soraya";
   src: url("/fonts/Soraya.ttf") format("truetype");
 }
@@ -54,8 +59,9 @@
   --font-Soraya: "Soraya";
   --font-Sahel: "Sahel";
   --font-Rust: "Rust";
+  --font-Vazir: "Vazir";
 }
 
 body {
-  @apply font-Sahel;
+  @apply font-Vazir;
 }
